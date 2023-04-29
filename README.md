@@ -6,16 +6,16 @@
 [![latest tag](https://img.shields.io/github/v/tag/techartorg/bqt?label=Github)](https://github.com/techartorg/bqt) ⚠️ PyPi version is currently outdated. Install from this repo for latest.
 
 
-Add QT support to Blender, letting you create custom UI for your addons with PySide2 QtWidgets.
+Add QT support to Blender, letting you create custom UI for your addons with PySide6 QtWidgets.
 ![custom ui sample](https://user-images.githubusercontent.com/3758308/192096952-e9ed73be-26e4-4ad8-a85f-be4175cebbda.gif)
 
 ## Features
-| feature | description|
-|--|--|
-|fully custom UI |Instead of feeling limited by N-Panel only UI. Do whatever you want. |
-| cross app | Qt widgets run nativaly in Krita, 3ds Max, Maya, … and are great to use in cross dcc pipelines |
-| existing community | hundreds of QT widgets on GitHub you can reuse, and lots of stack exchange questions answered regarding qt.|
-|Themed | BQT ships with a basic blender theme, so qt widgets will by default look similar to Blender.|
+| feature            | description                                                                                                 |
+| ------------------ | ----------------------------------------------------------------------------------------------------------- |
+| fully custom UI    | Instead of feeling limited by N-Panel only UI. Do whatever you want.                                        |
+| cross app          | Qt widgets run nativaly in Krita, 3ds Max, Maya, … and are great to use in cross dcc pipelines              |
+| existing community | hundreds of QT widgets on GitHub you can reuse, and lots of stack exchange questions answered regarding qt. |
+| Themed             | BQT ships with a basic blender theme, so qt widgets will by default look similar to Blender.                |
 
 
 ## Requirements
@@ -48,7 +48,7 @@ python setup.py install
 
 ## Develop setup
 When working on the bqt code from a repo, to prevent having to reinstall bqt every time you make a change,
-you can symlink the bqt folder to your blender addons folder to develop bqt. 
+you can symlink the bqt folder to your blender addons folder to develop bqt.
 Any updates in the repo are then reflected in blender on restart.
 e.g.:
 ```commandline
@@ -64,7 +64,7 @@ mklink /J "C:\Users\USERNAME\AppData\Roaming\Blender Foundation\Blender\2.93\scr
 [bqt_demo](bqt_demo) shows you how to use bqt with several qt demos you can run in Blender
 
 ### Community
-Discuss BQT on 
+Discuss BQT on
 - the BlenderArtists [thread](https://blenderartists.org/t/bqt-custom-ui-for-add-ons-tool-in-blender-with-pyqt-or-pyside/1458808)
 - [Ynput  thread](https://community.ynput.io/t/use-bqt-for-blender-qt-integration/127)
 

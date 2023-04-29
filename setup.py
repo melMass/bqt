@@ -32,6 +32,7 @@ import sys
 
 # read the contents of your README file
 from pathlib import Path
+
 this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
@@ -48,9 +49,9 @@ setup(
     # Metadata
     name="bqt",
     version="0.2.0",
-    description="Files to help bootstrap PySide2 with an event loop within Blender.",
+    description="Files to help bootstrap PySide6 with an event loop within Blender.",
     long_description=long_description,
-    long_description_content_type='text/markdown',
+    long_description_content_type="text/markdown",
     keywords=["Technical", "Art", "TechArt", "TechArtOrg", "Blender", "Qt", "PySide"],
     license="Mozilla Public License 2.0 (MPL 2.0)",
     url="https://github.com/techartorg/bqt",
@@ -65,7 +66,7 @@ setup(
     # Requirements
     python_requires=">=3.7",
     packages=find_packages(),
-    install_requires=["PySide2"],
+    install_requires=["PySide6"],
     # Package Data
     include_package_data=True,
     package_data={"bqt": ["*.png", "*.qss", "dist/bqt_startup.py"]},

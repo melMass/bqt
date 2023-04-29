@@ -1,6 +1,6 @@
 import bpy
-from PySide2.QtWidgets import QMessageBox
-from PySide2.QtCore import Qt
+from PySide6.QtWidgets import QMessageBox
+from PySide6.QtCore import Qt
 import os
 import bqt.ui
 
@@ -20,12 +20,17 @@ class WINDOW_OT_SaveFileFromQt(bpy.types.Operator):
     def execute(self, context):
         # TODO not sure what we are doing here, Friederman?
         if context.blend_data.is_saved:
-            bpy.ops.wm.save_mainfile({"window": bpy.context.window_manager.windows[0]}, 'EXEC_AREA', check_existing=False)
+            bpy.ops.wm.save_mainfile(
+                {"window": bpy.context.window_manager.windows[0]}, "EXEC_AREA", check_existing=False
+            )
         else:
-            bpy.ops.wm.save_mainfile({"window": bpy.context.window_manager.windows[0]}, 'INVOKE_AREA', check_existing=False)
+            bpy.ops.wm.save_mainfile(
+                {"window": bpy.context.window_manager.windows[0]}, "INVOKE_AREA", check_existing=False
+            )
         # https://docs.blender.org/api/current/bpy.ops.html
         # EXEC_AREA - execute the operator in a certain context
-        return {'FINISHED'}
+        return {"FINISHED"}
+
 
 # todo
 #  when clicking the icon, the dialogue resets to center screen position
@@ -35,14 +40,16 @@ class WINDOW_OT_SaveFileFromQt(bpy.types.Operator):
 
 class BlenderClosingDialog(QMessageBox):
     def __init__(self, parent):
-        super().__init__(parent) #, Qt.WindowCloseButtonHint | Qt.WindowSystemMenuHint | Qt.WindowTitleHint | Qt.WindowStaysOnTopHint)
+        super().__init__(
+            parent
+        )  # , Qt.WindowCloseButtonHint | Qt.WindowSystemMenuHint | Qt.WindowTitleHint | Qt.WindowStaysOnTopHint)
 
         # hide title bar
         self.setWindowFlag(Qt.FramelessWindowHint)
 
         filepath = bpy.data.filepath
         if not filepath:
-            filepath = 'untitled.blend'
+            filepath = "untitled.blend"
         filename = os.path.split(filepath)[1]
 
         question_icon = bqt.ui.get_question_pixmap()

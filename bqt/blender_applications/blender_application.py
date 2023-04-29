@@ -7,9 +7,9 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/.
 from abc import abstractmethod, abstractstaticmethod, ABCMeta
 from pathlib import Path
 import os
-from PySide2.QtWidgets import QApplication, QWidget
-from PySide2.QtGui import QCloseEvent, QIcon, QImage, QPixmap, QWindow
-from PySide2.QtCore import QEvent, QObject, QRect, QSettings
+from PySide6.QtWidgets import QApplication, QWidget
+from PySide6.QtGui import QCloseEvent, QIcon, QImage, QPixmap, QWindow
+from PySide6.QtCore import QEvent, QObject, QRect, QSettings
 from bqt.ui.quit_dialogue import BlenderClosingDialog
 import bpy
 

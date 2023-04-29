@@ -9,29 +9,30 @@ import atexit
 import os
 import sys
 import bpy
-import PySide2.QtCore as QtCore
-from PySide2.QtWidgets import QApplication
-from PySide2.QtCore import QDir
+import PySide6.QtCore as QtCore
+from PySide6.QtWidgets import QApplication
+from PySide6.QtCore import QDir
 import logging
 from pathlib import Path
 
 
 bl_info = {
-        "name": "PySide2 Qt wrapper (bqt)",
-        "description": "Enable PySide2 QtWidgets in Blender",
-        "author": "tech-artists.org",
-        "version": (1, 0),
-        "blender": (2, 80, 0),
-        # "location": "",
-        # "warning": "", # used for warning icon and text in add-ons panel
-        # "wiki_url": "http://my.wiki.url",
-        # "tracker_url": "http://my.bugtracker.url",
-        "support": "COMMUNITY",
-        "category": "UI"
-        }
+    "name": "PySide6 Qt wrapper (bqt)",
+    "description": "Enable PySide6 QtWidgets in Blender",
+    "author": "tech-artists.org",
+    "version": (1, 0),
+    "blender": (2, 80, 0),
+    # "location": "",
+    # "warning": "", # used for warning icon and text in add-ons panel
+    # "wiki_url": "http://my.wiki.url",
+    # "tracker_url": "http://my.bugtracker.url",
+    "support": "COMMUNITY",
+    "category": "UI",
+}
 
 
 # CORE FUNCTIONS #
+
 
 def instantiate_application() -> "bqt.blender_applications.BlenderApplication":
     """
@@ -45,7 +46,7 @@ def instantiate_application() -> "bqt.blender_applications.BlenderApplication":
     QApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)
     QApplication.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps)
     image_directory = str(Path(__file__).parent / "images")
-    QDir.addSearchPath('images', image_directory)
+    QDir.addSearchPath("images", image_directory)
     app = QApplication.instance()
     if not app:
         app = load_os_module()
@@ -138,5 +139,3 @@ def on_exit():
     if app:
         app.store_window_geometry()
         app.quit()
-
-
